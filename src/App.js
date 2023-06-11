@@ -33,10 +33,10 @@ function App() {
     axios.post(process.env.REACT_APP_BACKEND_URL + '/api/login', data, customConfig)
       .then(res => {
         // console.log(res);
-        // console.log(res.data);
+        // console.log(res.data.data.token);
         if (res.status === 200) {
           localStorage.setItem('authenticated', true);
-          localStorage.setItem('xaccesstoken', res.data.token);
+          localStorage.setItem('xaccesstoken', res.data.data.token);
           navigate('/item');
         }
       })

@@ -13,7 +13,7 @@ const Item = () => {
   const [datas, setDatas] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [pageCount, setPageCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [errorMessages, setErrorMessages] = useState({});
   const [imgBase64String, setImgBase64String] = useState('');
 
@@ -27,9 +27,9 @@ const Item = () => {
   const FetchDataMenu = (page=0, size=5, search='') => {
     axios.get(process.env.REACT_APP_BACKEND_URL + '/api/item?page=' + page + '&size=' + size + '&search=' + search, {headers:{'Authorization' : 'Bearer ' + localStorage.getItem('xaccesstoken')}})
       .then(response => {
-        // console.log(response.data.dataItems, searchText);
-        setDatas(response.data.dataItems);
-        setPageCount(response.data.totalPages);
+        // console.log(response.data.data.dataItems, searchText);
+        setDatas(response.data.data.dataItems);
+        setPageCount(response.data.data.totalPages);
       })
       .catch(error => {
         console.error(error);
@@ -42,11 +42,11 @@ const Item = () => {
 
   useEffect(() => {
     FetchDataMenu(currentPage, 5, searchText);
-  }, [searchText, currentPage]);
+  }, [searchText]);
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected);
-    FetchDataMenu(currentPage, 5, searchText);
+    FetchDataMenu(event.selected, 5, searchText);
   };
 
   const toBase64String = (e: ChangeEvent<HTMLInputElement>) => {
@@ -115,7 +115,7 @@ const Item = () => {
       })
       .catch(error => {
         console.error(error);
-        setErrorMessages({ name: "errorMessage", message: error.response.data.message });
+        setErrorMessages({ name: "errorMessage", message: error.response.data.data[0] });
       });
     } else { // Create new...
       axios.post(process.env.REACT_APP_BACKEND_URL + '/api/item', data, customConfig)
@@ -137,7 +137,7 @@ const Item = () => {
       })
       .catch(error => {
         console.error(error);
-        setErrorMessages({ name: "errorMessage", message: error.response.data.message });
+        setErrorMessages({ name: "errorMessage", message: error.response.data.data[0] });
       });
     }
   };
@@ -151,10 +151,10 @@ const Item = () => {
       .then(response => {
         data_id.value = id;
         photo.value = '';
-        name.value = response.data.name;
-        price_buy.value = response.data.price_buy;
-        price_sell.value = response.data.price_sell;
-        stock.value = response.data.stock;
+        name.value = response.data.data.name;
+        price_buy.value = response.data.data.price_buy;
+        price_sell.value = response.data.data.price_sell;
+        stock.value = response.data.data.stock;
       })
       .catch(error => {
         console.error(error);
@@ -164,7 +164,6 @@ const Item = () => {
   const deleteData = (id) => {
     axios.delete(process.env.REACT_APP_BACKEND_URL + '/api/item/' + id, {headers:{'Authorization' : 'Bearer ' + localStorage.getItem('xaccesstoken')}})
       .then(response => {
-        setCurrentPage(1);
         FetchDataMenu(currentPage, 5, searchText);
       })
       .catch(error => {
@@ -284,6 +283,7 @@ const Item = () => {
               activeClassName="active"
               renderOnZeroPageCount={null}
               forcePage={currentPage}
+              disableInitialCallback={true}
             />
           </div>
         </div>
