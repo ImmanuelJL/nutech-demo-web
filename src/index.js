@@ -12,7 +12,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.REACT_PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
 	    <Route index element={<App />} />
 	    <Route
