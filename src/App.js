@@ -23,7 +23,7 @@ function App() {
 
     setErrorMessages({ name: "errorMessage", message: "" });
 
-    const data = JSON.stringify({username: uname.value, password: pass.value});
+    const data = JSON.stringify({email: uname.value, password: pass.value});
     const customConfig = {
       headers: {
         'Content-Type': 'application/json'
