@@ -65,7 +65,7 @@ function App() {
           <div className="card px-5 py-5">
             <form onSubmit={handleSubmit} autoComplete="off">
               <div className="input-group mb-3">
-                <input type="text" className="form-control" name="uname" required autoFocus placeholder="Username" />
+                <input type="text" className="form-control" name="uname" required autoFocus placeholder="Email" />
                 <div className="input-group-append">
                   <div className="input-group-text">
                     <FontAwesomeIcon icon={faEnvelope} />

@@ -13,7 +13,7 @@ const Item = () => {
   const [datas, setDatas] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [pageCount, setPageCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [errorMessages, setErrorMessages] = useState({});
   const [imgBase64String, setImgBase64String] = useState('');
 
@@ -25,11 +25,11 @@ const Item = () => {
   };
 
   const FetchDataMenu = (page=0, size=5, search='') => {
-    axios.get(process.env.REACT_APP_BACKEND_URL + '/api/item?page=' + page + '&size=' + size + '&search=' + search, {headers:{'x-access-token' : localStorage.getItem('xaccesstoken')}})
+    axios.get(process.env.REACT_APP_BACKEND_URL + '/api/item?page=' + page + '&size=' + size + '&search=' + search, {headers:{'Authorization' : 'Bearer ' + localStorage.getItem('xaccesstoken')}})
       .then(response => {
-        // console.log(response.data.data.dataItems, searchText);
-        setDatas(response.data.data.dataItems);
-        setPageCount(response.data.data.totalPages);
+        // console.log(response.data.dataItems, searchText);
+        setDatas(response.data.dataItems);
+        setPageCount(response.data.totalPages);
       })
       .catch(error => {
         console.error(error);
@@ -93,7 +93,7 @@ const Item = () => {
     const customConfig = {
       headers: {
         'Content-Type': 'application/json',
-        'x-access-token': localStorage.getItem('xaccesstoken')
+        'Authorization': 'Bearer ' + localStorage.getItem('xaccesstoken')
       }
     };
 
@@ -147,14 +147,14 @@ const Item = () => {
 
     document.getElementById('openModalBtn').click();
 
-    axios.get(process.env.REACT_APP_BACKEND_URL + '/api/item/' + id, {headers:{'x-access-token' : localStorage.getItem('xaccesstoken')}})
+    axios.get(process.env.REACT_APP_BACKEND_URL + '/api/item/' + id, {headers:{'Authorization' : 'Bearer ' + localStorage.getItem('xaccesstoken')}})
       .then(response => {
         data_id.value = id;
         photo.value = '';
-        name.value = response.data.data[0].name;
-        price_buy.value = response.data.data[0].price_buy;
-        price_sell.value = response.data.data[0].price_sell;
-        stock.value = response.data.data[0].stock;
+        name.value = response.data.name;
+        price_buy.value = response.data.price_buy;
+        price_sell.value = response.data.price_sell;
+        stock.value = response.data.stock;
       })
       .catch(error => {
         console.error(error);
@@ -162,9 +162,9 @@ const Item = () => {
   };
 
   const deleteData = (id) => {
-    axios.delete(process.env.REACT_APP_BACKEND_URL + '/api/item/' + id, {headers:{'x-access-token' : localStorage.getItem('xaccesstoken')}})
+    axios.delete(process.env.REACT_APP_BACKEND_URL + '/api/item/' + id, {headers:{'Authorization' : 'Bearer ' + localStorage.getItem('xaccesstoken')}})
       .then(response => {
-        setCurrentPage(0);
+        setCurrentPage(1);
         FetchDataMenu(currentPage, 5, searchText);
       })
       .catch(error => {
