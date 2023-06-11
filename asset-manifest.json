@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/nutech-demo-web/static/css/main.041a4bec.css",
-    "main.js": "/nutech-demo-web/static/js/main.7fe88228.js",
+    "main.js": "/nutech-demo-web/static/js/main.71d07d64.js",
     "static/js/787.f3961d0b.chunk.js": "/nutech-demo-web/static/js/787.f3961d0b.chunk.js",
     "static/media/logo.svg": "/nutech-demo-web/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/nutech-demo-web/index.html",
     "main.041a4bec.css.map": "/nutech-demo-web/static/css/main.041a4bec.css.map",
-    "main.7fe88228.js.map": "/nutech-demo-web/static/js/main.7fe88228.js.map",
+    "main.71d07d64.js.map": "/nutech-demo-web/static/js/main.71d07d64.js.map",
     "787.f3961d0b.chunk.js.map": "/nutech-demo-web/static/js/787.f3961d0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.041a4bec.css",
-    "static/js/main.7fe88228.js"
+    "static/js/main.71d07d64.js"
   ]
 }
