@@ -1,10 +1,9 @@
 {
-  "name": "data-barang-web",
-  "version": "0.1.0",
+  "name": "nutech-demo-web",
+  "version": "1.0.0",
+  "homepage": "https://immanueljl.github.io/nutech-demo-web",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -22,6 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns --watchAll --coverage",
@@ -51,5 +52,8 @@
         "lines": 80
       }
     }
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
