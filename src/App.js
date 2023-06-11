@@ -30,13 +30,13 @@ function App() {
       }
     };
 
-    axios.post(process.env.REACT_APP_BACKEND_URL + '/api/auth/signin', data, customConfig)
+    axios.post(process.env.REACT_APP_BACKEND_URL + '/api/login', data, customConfig)
       .then(res => {
         // console.log(res);
         // console.log(res.data);
         if (res.status === 200) {
           localStorage.setItem('authenticated', true);
-          localStorage.setItem('xaccesstoken', res.data.accessToken);
+          localStorage.setItem('xaccesstoken', res.data.token);
           navigate('/item');
         }
       })
