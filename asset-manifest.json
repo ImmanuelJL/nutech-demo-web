@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/nutech-demo-web/static/css/main.041a4bec.css",
-    "main.js": "/nutech-demo-web/static/js/main.9dbf595e.js",
-    "static/js/787.f3961d0b.chunk.js": "/nutech-demo-web/static/js/787.f3961d0b.chunk.js",
-    "static/media/logo.svg": "/nutech-demo-web/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/nutech-demo-web/index.html",
-    "main.041a4bec.css.map": "/nutech-demo-web/static/css/main.041a4bec.css.map",
-    "main.9dbf595e.js.map": "/nutech-demo-web/static/js/main.9dbf595e.js.map",
-    "787.f3961d0b.chunk.js.map": "/nutech-demo-web/static/js/787.f3961d0b.chunk.js.map"
+    "main.css": "/static/css/main.041a4bec.css",
+    "main.js": "/static/js/main.ded81456.js",
+    "static/js/787.f3961d0b.chunk.js": "/static/js/787.f3961d0b.chunk.js",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.041a4bec.css.map": "/static/css/main.041a4bec.css.map",
+    "main.ded81456.js.map": "/static/js/main.ded81456.js.map",
+    "787.f3961d0b.chunk.js.map": "/static/js/787.f3961d0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.041a4bec.css",
-    "static/js/main.9dbf595e.js"
+    "static/js/main.ded81456.js"
   ]
 }
