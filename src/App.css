@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+table td.fit, 
+table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.photo-thumbnail {
+  width: 40px;
+}
+
+.no-padding-left-right {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.pull-right-important {
+  float: right !important;
+}
+
+.logo {
+  width: 50px;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 426px) {
+  .container-content {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+}
