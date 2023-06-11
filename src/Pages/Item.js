@@ -89,7 +89,7 @@ const Item = () => {
 
     setErrorMessages({ name: "errorMessage", message: "" });
 
-    const data = JSON.stringify({photo: imgBase64String, name: name.value, price_buy: price_buy.value, price_sell: price_sell.value, stock: stock.value});
+    var data = JSON.stringify({photo: imgBase64String, name: name.value, price_buy: price_buy.value, price_sell: price_sell.value, stock: stock.value});
     const customConfig = {
       headers: {
         'Content-Type': 'application/json',
@@ -98,6 +98,10 @@ const Item = () => {
     };
 
     if (data_id.value !== '') { // Edit data...
+      if (photo.value === '') {
+        data = JSON.stringify({name: name.value, price_buy: price_buy.value, price_sell: price_sell.value, stock: stock.value});
+      }
+
       axios.put(process.env.REACT_APP_BACKEND_URL + '/api/item/' + data_id.value, data, customConfig)
       .then(res => {
         if (res.status === 200) {
