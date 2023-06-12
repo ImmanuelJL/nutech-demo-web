@@ -60,6 +60,10 @@ table th.fit {
   width: 50px;
 }
 
+.error {
+  color: red;
+}
+
 /* For mobile phones: */
 @media only screen and (max-width: 426px) {
   .container-content {

@@ -186,6 +186,8 @@ const Item = () => {
     price_buy.value = '';
     price_sell.value = '';
     stock.value = '';
+
+    setErrorMessages({ name: "errorMessage", message: '' });
   };
 
   const renderErrorMessage = (name) =>
