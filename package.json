@@ -1,6 +1,6 @@
 {
   "name": "nutech-demo-web",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "homepage": "https://immanueljl.github.io/nutech-demo-web",
   "private": false,
   "dependencies": {
@@ -25,7 +25,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns --watchAll --coverage",
+    "test": "react-scripts test --transformIgnorePatterns --watchAll --coverage --detectOpenHandles",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -54,6 +54,7 @@
     }
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^5.0.0"
   }
 }

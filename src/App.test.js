@@ -1,8 +1,20 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 
 test('App renders successfully', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/CRUD Item Data/i);
+  render(
+  	<BrowserRouter>
+  		<Routes>
+  			<Route
+			    path='/'
+			    element={
+			      <App />
+			    }
+			/>
+  		</Routes>
+  	</BrowserRouter>
+  );
+  const linkElement = screen.getByText(/Sign In/i);
   expect(linkElement).toBeInTheDocument();
 });
