@@ -13,7 +13,7 @@ const Item = () => {
   const [datas, setDatas] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [pageCount, setPageCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(-1);
   const [errorMessages, setErrorMessages] = useState({});
   const [imgBase64String, setImgBase64String] = useState('');
 
@@ -25,6 +25,10 @@ const Item = () => {
   };
 
   const FetchDataMenu = (page=0, size=5, search='') => {
+    if (page < 0) {
+      page = 0;
+    }
+
     axios.get(process.env.REACT_APP_BACKEND_URL + '/api/item?page=' + page + '&size=' + size + '&search=' + search, {headers:{'Authorization' : 'Bearer ' + localStorage.getItem('xaccesstoken')}})
       .then(response => {
         // console.log(response.data.data.dataItems, searchText);
@@ -42,7 +46,7 @@ const Item = () => {
 
   useEffect(() => {
     FetchDataMenu(currentPage, 5, searchText);
-  }, [searchText]);
+  }, [searchText, currentPage]);
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected);
