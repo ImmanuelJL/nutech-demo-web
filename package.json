@@ -1,6 +1,6 @@
 {
   "name": "nutech-demo-web",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "homepage": "https://immanueljl.github.io/nutech-demo-web",
   "private": false,
   "dependencies": {

@@ -50,7 +50,7 @@ const Item = () => {
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected);
-    FetchDataMenu(event.selected, 5, searchText);
+    // FetchDataMenu(event.selected, 5, searchText); /* Already added to useEffect dependency, do we still need this? */
   };
 
   const toBase64String = (e: ChangeEvent<HTMLInputElement>) => {
